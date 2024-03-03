@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>View</title>
+</head>
+
+<body>
+
+	<div style="background-color: rgb(0, 128, 255); padding: 5px;">
+		<h3 style="color: white;">Ticket Tracker Application</h3>
+	</div><br><br>
+
+	<form>
+		<input type="text" name="query" placeholder="Search for Ticket Titles..">
+		<button type="submit" style="background-color: rgb(0, 128, 255); color: rgb(255, 255, 255); padding: 2px 2px;
+		 text-decoration: none; border-radius: 5px;">Search</button>
+	</form>
+
+	<table border="3">
+
+		<tr style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">
+
+			<th>Id</th>
+
+			<th>TicketTitle</th>
+
+			<th>TicketShortDescription</th>
+
+			<th>TicketCreatedOn</th>
+
+			<th>Action</th>
+
+		</tr>
+
+		<tr th:each="temp:${values}">
+
+			<td th:text="${temp.id}"></td>
+
+			<td th:text="${temp.ticketTitle}"></td>
+
+			<td th:text="${temp.ticketShortDescription}"></td>
+
+			<td th:text="${temp.ticketCreatedOn}"></td>
+
+			<td>
+				<a th:href="@{/updateticket(id=${temp.id})}"
+					style="background-color: mediumblue; color: rgb(255, 255, 255); padding: 2px 2px; text-decoration: none; border-radius: 5px;">Edit</a>
+				<a th:href="@{/deleteTicket(id=${temp.id})}"
+					style="background-color: rgb(255, 0, 0); color: white; padding: 2px 2px; text-decoration: none; border-radius: 5px;">Delete</a>
+				<a th:href="@{/viewticket(id=${temp.id})}"
+					style="background-color: deepskyblue; color: white; padding: 2px 2px; text-decoration: none; border-radius: 5px;">View</a>
+			</td>
+
+
+		</tr>
+
+	</table>
+
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+	<form action="updated" method="post">
+		<table border="3">
+			<tr>
+				<th>Id</th>
+				<td><input type="number" name="id" th:value="${ticket.id}" readonly></td>
+			</tr>
+			<tr>
+				<th>TicketTitle</th>
+				<td><input type="text" name="ticketTitle" th:value="${ticket.ticketTitle}"></td>
+			</tr>
+			<tr>
+				<th>TicketShortDescription</th>
+				<td><input type="text" name="ticketShortDescription" th:value="${ticket.ticketShortDescription}"></td>
+			</tr>
+			<tr>
+				<th>TicketCreatedOn</th>
+				<td><input type="text" name="ticketCreatedOn" th:value="${ticket.ticketCreatedOn}"></td>
+			</tr>
+		</table>
+		<button type="submit">Update Ticket</button>
+	</form>
+
+</body>
+
+</html>
